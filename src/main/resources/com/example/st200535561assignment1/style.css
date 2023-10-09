@@ -1,0 +1,34 @@
+.root {
+    -fx-font-size: 20px;
+    -fx-font-family: sans-serif;
+    -fx-background-image: url("images/background.jpg");
+    -fx-background-size: cover;
+}
+
+#header{
+    -fx-font-size: 40px;
+}
+
+.button {
+    -fx-background-radius: 20pt;
+    -fx-border-radius: 20px;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.chart-content {
+    -fx-padding: 30px;
+    -fx-background-radius: 20pt;
+
+}
+
+.chart-legend {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
+
+.axis {
+    -fx-tick-label-fill: white;
+}
