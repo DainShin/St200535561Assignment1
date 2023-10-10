@@ -18,14 +18,26 @@ public class ChartViewController {
 
     @FXML
     private RadioButton genderRadioButton;
-    private boolean isGenderChartSelected = false;
+
+    @FXML
+    private RadioButton tableViewRadioButton;
+
+    private int selectedNumber = 1;
+    private ToggleGroup toggleGroup;
 
     /**
      * If the idGenderChartSelected is true, the line chart will be shown. If not, the bar chart will be shown
      */
     @FXML
     void viewTable(ActionEvent event) throws IOException {
-        String fxmlFileName = isGenderChartSelected ? "gender-chart-view.fxml" : "chart-view.fxml";
+        String fxmlFileName = "";
+        if(selectedNumber  == 1)
+            fxmlFileName = "chart-view.fxml";
+        else if(selectedNumber  == 2)
+            fxmlFileName = "gender-chart-view.fxml";
+        else if(selectedNumber  == 3)
+            fxmlFileName ="table-view.fxml";
+
         SceneChanger.changeScenes(event, fxmlFileName);
     }
 
@@ -33,12 +45,13 @@ public class ChartViewController {
      * This method will check if the radio button is for linechart or not
      */
     @FXML
-    void handleRadioButtonAction(ActionEvent event) {
-        if(event.getSource() == genderRadioButton) {
-            isGenderChartSelected = true;
-        } else if (event.getSource() == overallRadioButton) {
-            isGenderChartSelected = false;
-        }
+    void handleRadioButtonAction(ActionEvent event) throws IOException {
+        if(event.getSource() == overallRadioButton)
+            selectedNumber = 1;
+        else if(event.getSource() == genderRadioButton)
+            selectedNumber = 2;
+        else if(event.getSource() == tableViewRadioButton)
+            selectedNumber = 3;
     }
 
     /**
@@ -46,7 +59,11 @@ public class ChartViewController {
      */
     @FXML
     private void initialize() {
-        barChart.getData().addAll(DBUtility.getBarChartData());
+       barChart.getData().addAll(DBUtility.getBarChartData());
+       toggleGroup = new ToggleGroup();
+       overallRadioButton.setToggleGroup(toggleGroup);
+       genderRadioButton.setToggleGroup(toggleGroup);
+       tableViewRadioButton.setToggleGroup(toggleGroup);
     }
 
 }

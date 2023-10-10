@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 
 import java.io.IOException;
 
@@ -12,21 +13,31 @@ public class GenderChartViewController {
 
     @FXML
     private LineChart<String, Double> lineChart;
-    XYChart.Series<String, Double> series = null;
 
     @FXML
     private RadioButton overallRadioButton;
 
     @FXML
     private RadioButton genderRadioButton;
-    private boolean isOverallChartSelected = false;
+
+    @FXML
+    private RadioButton tableViewRadioButton;
+    private int selectedNumber = 1;
+    private ToggleGroup toggleGroup;
 
     /**
      * If the isOverallChartSelected is true, the bar chart will be shown. If not, the line chart will be shown
      */
     @FXML
     void viewTable(ActionEvent event) throws IOException {
-        String fxmlFileName = isOverallChartSelected ? "chart-view.fxml" : "gender-chart-view.fxml";
+        String fxmlFileName = "";
+        if(selectedNumber  == 1)
+            fxmlFileName = "chart-view.fxml";
+        else if(selectedNumber  == 2)
+            fxmlFileName = "gender-chart-view.fxml";
+        else if(selectedNumber  == 3)
+            fxmlFileName ="table-view.fxml";
+
         SceneChanger.changeScenes(event, fxmlFileName);
     }
 
@@ -35,11 +46,12 @@ public class GenderChartViewController {
      */
     @FXML
     void handleRadioButtonAction(ActionEvent event) {
-        if(event.getSource() == overallRadioButton) {
-            isOverallChartSelected = true;
-        } else if (event.getSource() == genderRadioButton) {
-            isOverallChartSelected = false;
-        }
+        if(event.getSource() == overallRadioButton)
+            selectedNumber = 1;
+        else if(event.getSource() == genderRadioButton)
+            selectedNumber = 2;
+        else if(event.getSource() == tableViewRadioButton)
+            selectedNumber = 3;
     }
 
     /**
@@ -49,5 +61,9 @@ public class GenderChartViewController {
     private void initialize() {
        lineChart.getData().addAll(DBUtility.getLineChartData("men_rate"));
        lineChart.getData().addAll(DBUtility.getLineChartData("women_rate"));
+       toggleGroup = new ToggleGroup();
+       overallRadioButton.setToggleGroup(toggleGroup);
+       genderRadioButton.setToggleGroup(toggleGroup);
+       tableViewRadioButton.setToggleGroup(toggleGroup);
     }
 }

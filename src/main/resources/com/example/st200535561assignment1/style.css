@@ -41,3 +41,7 @@
 .axis {
     -fx-tick-label-fill: white;
 }
+
+.table-view .column-header {
+    -fx-background-color: black;
+}

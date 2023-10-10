@@ -37,6 +37,7 @@
 
                      <RadioButton fx:id="overallRadioButton" mnemonicParsing="false" onAction="#handleRadioButtonAction" text="Overall Average" />
                      <RadioButton fx:id="genderRadioButton" mnemonicParsing="false" onAction="#handleRadioButtonAction" text="Gender Average" />
+                  <RadioButton fx:id="tableViewRadioButton" mnemonicParsing="false" onAction="#handleRadioButtonAction" text="Age Group" />
                  
                </children>
             </HBox>

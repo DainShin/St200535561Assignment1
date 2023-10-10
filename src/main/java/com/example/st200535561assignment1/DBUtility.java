@@ -4,6 +4,7 @@ import javafx.scene.chart.*;
 import javafx.scene.layout.VBox;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,6 +121,46 @@ public class DBUtility {
 
         return series;
     }
+
+    public static ArrayList<AgeGroupUnemployment> getAgeGroupUnemploymentFromDB() {
+
+        ArrayList<AgeGroupUnemployment> ageGroupUnemployments = new ArrayList<>();
+
+        String sql = "SELECT * FROM df_unemployment_rates;";
+
+        try (
+                Connection conn = DriverManager.getConnection(connectURL, dbUser, password);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+                )
+        {
+            while (resultSet.next())
+            {
+               LocalDate date = resultSet.getDate("date").toLocalDate();
+               double overall_rate = resultSet.getDouble("overall_rate");
+               double age_16_17_rate = resultSet.getDouble("age_16_17_rate");
+               double age_16_19_rate = resultSet.getDouble("age_16_19_rate");
+               double age_18_19_rate = resultSet.getDouble("age_18_19_rate");
+               double age_20plus_rate = resultSet.getDouble("age_20plus_rate");
+               double age_25plus_rate = resultSet.getDouble("age_25plus_rate");
+               double age_55plus_rate = resultSet.getDouble("age_55plus_rate");
+
+               AgeGroupUnemployment newAgeGroupUnemployments = new AgeGroupUnemployment
+                       (date,overall_rate,age_16_17_rate,age_16_19_rate,age_18_19_rate,age_20plus_rate,age_25plus_rate,age_55plus_rate);
+
+               ageGroupUnemployments.add(newAgeGroupUnemployments);
+            }
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return ageGroupUnemployments;
+
+    }
+
+
 
 
 }
