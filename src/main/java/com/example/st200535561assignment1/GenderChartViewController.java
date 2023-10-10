@@ -21,11 +21,18 @@ public class GenderChartViewController {
     private RadioButton genderRadioButton;
     private boolean isOverallChartSelected = false;
 
+    /**
+     * If the isOverallChartSelected is true, the bar chart will be shown. If not, the line chart will be shown
+     */
     @FXML
     void viewTable(ActionEvent event) throws IOException {
         String fxmlFileName = isOverallChartSelected ? "chart-view.fxml" : "gender-chart-view.fxml";
         SceneChanger.changeScenes(event, fxmlFileName);
     }
+
+    /**
+     * This method will check if the radio button is for linechart or not
+     */
     @FXML
     void handleRadioButtonAction(ActionEvent event) {
         if(event.getSource() == overallRadioButton) {
@@ -35,6 +42,9 @@ public class GenderChartViewController {
         }
     }
 
+    /**
+     * Linechart for gender unemployment rate is called from the DBUtility.getLineChartData()
+     */
     @FXML
     private void initialize() {
        lineChart.getData().addAll(DBUtility.getLineChartData("men_rate"));

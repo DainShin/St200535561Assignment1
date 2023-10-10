@@ -16,7 +16,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("chart-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("US Unemployment Rate");
-        stage.getIcons().add(new Image(Main.class.getResourceAsStream("images/flag.jpg")));
+        stage.getIcons().add(new Image(Main.class.getResourceAsStream("images/flag.jpg"))); // This is for the icon on the window
         stage.setScene(scene);
         stage.show();
     }

@@ -14,6 +14,10 @@ public class DBUtility {
     private static final String password = "0000";
 
 
+    /**
+     * This is for Line chart. Bar Chart will show the US average unemployment rate according to the year group
+     * @return
+     */
     public static XYChart.Series<String, Double> getBarChartData() {
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
@@ -65,11 +69,19 @@ public class DBUtility {
         return series;
     }
 
+    /**
+     * This is for Line chart. Line Chart will show the US male/female unemployment rate according to the year group
+     * @param colName
+     */
 
     public static XYChart.Series<String, Double> getLineChartData(String colName) {
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
-        series.setName(colName);
+
+        if(colName.equals("men_rate"))
+            series.setName("Man Rate");
+        else
+            series.setName("Women Rate");
 
         String sql = "SELECT \n" +
                 "    CONCAT(\n" +
