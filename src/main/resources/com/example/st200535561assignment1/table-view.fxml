@@ -9,12 +9,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.st200535561assignment1.TableViewController">
    <children>
-      <VBox alignment="TOP_CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label id="header" text="Unemployment (Age Group)" />
+            <Label id="header" text="Unemployment Rate by Age">
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="30.0" right="30.0" top="50.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="US Unemployment Rate by Age (1948'~2023') ">
+               <font>
+                  <Font name="System Italic" size="17.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" />
+               </VBox.margin>
+            </Label>
             <TableView fx:id="tableView">
               <columns>
                 <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
@@ -30,21 +46,18 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="80.0">
                <children>
                   <RadioButton fx:id="overallRadioButton" mnemonicParsing="false" onAction="#handleRadioButtonAction" text="Overall Average" />
                   <RadioButton fx:id="genderRadioButton" mnemonicParsing="false" onAction="#handleRadioButtonAction" text=" Gender Average" />
                   <RadioButton fx:id="tableViewRadioButton" mnemonicParsing="false" onAction="#handleRadioButtonAction" text="Age Group" />
                </children>
-               <padding>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </padding>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
             </HBox>
             <Button mnemonicParsing="false" onAction="#viewTable" text="View Table" />
          </children>
-         <padding>
-            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-         </padding>
       </VBox>
    </children>
    <padding>

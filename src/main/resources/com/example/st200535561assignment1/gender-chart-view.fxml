@@ -13,12 +13,23 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.st200535561assignment1.GenderChartViewController">
-   <VBox alignment="TOP_CENTER" layoutX="124.0" layoutY="14.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <VBox alignment="TOP_CENTER" layoutX="124.0" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-         <Label id="header" text="US Unemployment Rate(Gender)">
+         <Label id="header" text="Average Unemployment Rate by Gender">
             <font>
-               <Font size="22.0" />
+               <Font name="Arial" size="30.0" />
             </font>
+            <VBox.margin>
+               <Insets bottom="10.0" left="30.0" right="30.0" top="50.0" />
+            </VBox.margin>
+         </Label>
+         <Label text="US Unemployment Average Rate by Gender (1951'~2023') ">
+            <font>
+               <Font name="System Italic" size="17.0" />
+            </font>
+            <VBox.margin>
+               <Insets bottom="30.0" />
+            </VBox.margin>
          </Label>
       
           <LineChart fx:id="lineChart">
@@ -35,6 +46,9 @@
                <RadioButton fx:id="genderRadioButton" mnemonicParsing="false" onAction="#handleRadioButtonAction" text="Gender Average" />
                <RadioButton fx:id="tableViewRadioButton" mnemonicParsing="false" onAction="#handleRadioButtonAction" text="Age Group" />
             </children>
+            <padding>
+               <Insets top="30.0" />
+            </padding>
          </HBox>
          <Button mnemonicParsing="false" onAction="#viewTable" text="View Table">
             <font>
@@ -45,9 +59,6 @@
             </VBox.margin>
          </Button>
       </children>
-      <padding>
-         <Insets bottom="50.0" left="30.0" right="30.0" top="50.0" />
-      </padding>
    </VBox>
 
 </AnchorPane>

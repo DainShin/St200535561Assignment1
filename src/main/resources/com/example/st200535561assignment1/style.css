@@ -3,15 +3,35 @@
     -fx-font-family: sans-serif;
     -fx-background-image: url("images/backgroundimg.jpg");
     -fx-background-size: cover;
+    -fx-background-color: rgba(0, 0, 0, 1);
+}
+
+.closeButton{
+    -fx-background-color: #0b3048;
+}
+
+.closeButton:hover {
+    -fx-background-color: #e94e50;
 }
 
 #header{
     -fx-font-size: 40px;
 }
 
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
 .button {
     -fx-background-radius: 20pt;
     -fx-border-radius: 20px;
+    -fx-background-color: #05263b;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #05263b;
 }
 
 .label {
@@ -21,12 +41,6 @@
 .chart-content {
     -fx-padding: 30px;
     -fx-background-radius: 20pt;
-
-
-}
-
-.chart {
-    -fx-background-color: transparent;
 }
 
 .radio-button {
