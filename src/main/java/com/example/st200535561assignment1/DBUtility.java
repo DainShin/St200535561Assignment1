@@ -10,10 +10,9 @@ import java.util.List;
 
 public class DBUtility {
 
-    private static final String connectURL = "jdbc:mysql://127.0.0.1:3306/unemployment";
-    private static final String dbUser = "root";
-    private static final String password = "0000";
-
+    private static final String connectURL = "jdbc:mysql://172.31.22.43:3306/Dain200535561";
+    private static final String dbUser = "Dain200535561";
+    private static final String password = "Bt57Xh4V6g";
 
     /**
      * This is for Line chart. Bar Chart will show the US average unemployment rate according to the year group
@@ -39,7 +38,7 @@ public class DBUtility {
                 "GROUP BY\n" +
                 "    decade_group\n" +
                 "HAVING \n" +
-                "    decade_group BETWEEN '1948' AND '2020'\n" +
+                "    decade_group BETWEEN '1951' AND '2020'\n" +
                 "UNION \n" +
                 "SELECT YEAR(STR_TO_DATE(date, '%Y-%m-%d')) AS decade_group,\n" +
                 "AVG(overall_rate) AS overall_average_rate\n" +
@@ -159,8 +158,4 @@ public class DBUtility {
         return ageGroupUnemployments;
 
     }
-
-
-
-
 }
