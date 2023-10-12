@@ -9,9 +9,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class SceneChanger {
-
     /**
-     * This methode will change the fxml file
+     * This method will show the chart according to the fxmlFileName
      * @param event
      * @param fxmlFileName
      * @throws IOException

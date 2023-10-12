@@ -26,7 +26,7 @@ public class GenderChartViewController {
     private ToggleGroup toggleGroup;
 
     /**
-     * If the isOverallChartSelected is true, the bar chart will be shown. If not, the line chart will be shown
+     * According to the radio button, each fxml files will be sent to the "SceneChanger.changeScenes" method
      */
     @FXML
     void viewTable(ActionEvent event) throws IOException {
@@ -42,7 +42,7 @@ public class GenderChartViewController {
     }
 
     /**
-     * This method will check if the radio button is for linechart or not
+     * This method will check the selected radio button
      */
     @FXML
     void handleRadioButtonAction(ActionEvent event) {
@@ -61,6 +61,8 @@ public class GenderChartViewController {
     private void initialize() {
        lineChart.getData().addAll(DBUtility.getLineChartData("men_rate"));
        lineChart.getData().addAll(DBUtility.getLineChartData("women_rate"));
+
+       // Radio buttons will not be selected in duplicate
        toggleGroup = new ToggleGroup();
        overallRadioButton.setToggleGroup(toggleGroup);
        genderRadioButton.setToggleGroup(toggleGroup);

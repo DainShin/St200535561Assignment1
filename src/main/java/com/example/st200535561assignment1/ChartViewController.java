@@ -65,5 +65,4 @@ public class ChartViewController {
        genderRadioButton.setToggleGroup(toggleGroup);
        tableViewRadioButton.setToggleGroup(toggleGroup);
     }
-
 }

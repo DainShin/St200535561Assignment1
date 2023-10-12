@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class AgeGroupUnemployment {
 
+    // Fields
     private LocalDate date;
     private double overall_rate;
     private double age_16_17_rate;
@@ -13,6 +14,7 @@ public class AgeGroupUnemployment {
     private double age_25plus_rate;
     private double age_55plus_rate;
 
+    // Constructor
     public AgeGroupUnemployment(LocalDate date, double overall_rate, double age_16_17_rate, double age_16_19_rate, double age_18_19_rate, double age_20plus_rate, double age_25plus_rate, double age_55plus_rate) {
         this.date = date;
         this.overall_rate = overall_rate;
@@ -24,6 +26,7 @@ public class AgeGroupUnemployment {
         this.age_55plus_rate = age_55plus_rate;
     }
 
+    // Getters and setters
     public LocalDate getDate() {
         return date;
     }

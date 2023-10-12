@@ -79,9 +79,11 @@ public class TableViewController {
         SceneChanger.changeScenes(event, fxmlFileName);
     }
 
+    /**
+     * Table for unemployment rate by age is called from the DBUtility.getAgeGroupUnemploymentFromDB()
+     */
     @FXML
     private void initialize() {
-
         allAgeGroupUnemployment = DBUtility.getAgeGroupUnemploymentFromDB();
 
         ageGroup1Column.setCellValueFactory(new PropertyValueFactory<>("age_16_17_rate"));
@@ -95,11 +97,10 @@ public class TableViewController {
 
         tableView.getItems().addAll(allAgeGroupUnemployment);
 
+        // Radio buttons will not be selected in duplicate
         toggleGroup = new ToggleGroup();
         overallRadioButton.setToggleGroup(toggleGroup);
         genderRadioButton.setToggleGroup(toggleGroup);
         tableViewRadioButton.setToggleGroup(toggleGroup);
-
     }
-
 }

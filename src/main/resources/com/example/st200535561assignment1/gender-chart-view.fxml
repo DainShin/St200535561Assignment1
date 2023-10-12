@@ -52,7 +52,7 @@
          </HBox>
          <Button mnemonicParsing="false" onAction="#viewTable" text="View Table">
             <font>
-               <Font size="16.0" />
+               <Font size="18.0" />
             </font>
             <VBox.margin>
                <Insets />
