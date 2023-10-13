@@ -31,7 +31,7 @@
                   <Insets bottom="30.0" />
                </VBox.margin>
             </Label>
-            <TableView fx:id="tableView">
+            <TableView fx:id="tableView" opacity="0.7" stylesheets="@style.css">
               <columns>
                   <TableColumn fx:id="idColumn" prefWidth="75.0" text="Id" />
                 <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />

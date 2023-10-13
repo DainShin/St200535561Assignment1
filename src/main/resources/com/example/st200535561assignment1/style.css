@@ -1,7 +1,7 @@
 .root {
     -fx-font-family: 'Lato';
     -fx-font-size: 20px;
-    -fx-background-image: url("images/backgroundimg.jpg");
+    -fx-background-image: url("images/background.jpg");
     -fx-background-size: cover;
 }
 
