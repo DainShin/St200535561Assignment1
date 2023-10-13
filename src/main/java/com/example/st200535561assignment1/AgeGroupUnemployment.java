@@ -34,8 +34,15 @@ public class AgeGroupUnemployment {
         return id;
     }
 
+    /**
+     * Id should be greater than 0
+     */
     public void setId(int id) {
-        this.id = id;
+        if (id > 0) {
+            this.id = id;
+        } else {
+            throw new IllegalArgumentException("Id should be greater than 0");
+        }
     }
 
     public LocalDate getDate() {
@@ -58,7 +65,7 @@ public class AgeGroupUnemployment {
     }
 
     /**
-     * Setter: Each rate should be between 0 and 100 (for the rate, the validation is same)
+     * Setters for rate: Each rate should be between 0 and 100 (for the rate, the validation is same)
      */
 
     public void setOverall_rate(double overall_rate) {

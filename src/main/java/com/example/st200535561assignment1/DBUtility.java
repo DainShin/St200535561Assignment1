@@ -16,11 +16,10 @@ public class DBUtility {
 
     /**
      * This is for Line chart. Bar Chart will show the US average unemployment rate according to the year group
-     * @return
      */
     public static XYChart.Series<String, Double> getBarChartData() {
 
-        // This is to access to the data in the chart
+        // This is to access to the data in the chart. In the series instance, each value from the data will be stored
         XYChart.Series<String, Double> series = new XYChart.Series<>();
 
         // Set the legend name
@@ -73,7 +72,6 @@ public class DBUtility {
 
     /**
      * This is for Line chart. Line Chart will show the US male/female unemployment rate according to the year group
-     * @param colName
      */
 
     public static XYChart.Series<String, Double> getLineChartData(String colName) {
@@ -125,7 +123,6 @@ public class DBUtility {
 
     /**
      * This it for the table. The table will show the US unemployment rate by age
-     * @return
      */
     public static ArrayList<AgeGroupUnemployment> getAgeGroupUnemploymentFromDB() {
 
@@ -143,23 +140,23 @@ public class DBUtility {
         {
             while (resultSet.next())
             {
-               // Stored each data from the database
+                // Stored each data from the database
                 int id = resultSet.getInt("id");
-               LocalDate date = resultSet.getDate("date").toLocalDate();
-               double overall_rate = resultSet.getDouble("overall_rate");
-               double age_16_17_rate = resultSet.getDouble("age_16_17_rate");
-               double age_16_19_rate = resultSet.getDouble("age_16_19_rate");
-               double age_18_19_rate = resultSet.getDouble("age_18_19_rate");
-               double age_20plus_rate = resultSet.getDouble("age_20plus_rate");
-               double age_25plus_rate = resultSet.getDouble("age_25plus_rate");
-               double age_55plus_rate = resultSet.getDouble("age_55plus_rate");
+                LocalDate date = resultSet.getDate("date").toLocalDate();
+                double overall_rate = resultSet.getDouble("overall_rate");
+                double age_16_17_rate = resultSet.getDouble("age_16_17_rate");
+                double age_16_19_rate = resultSet.getDouble("age_16_19_rate");
+                double age_18_19_rate = resultSet.getDouble("age_18_19_rate");
+                double age_20plus_rate = resultSet.getDouble("age_20plus_rate");
+                double age_25plus_rate = resultSet.getDouble("age_25plus_rate");
+                double age_55plus_rate = resultSet.getDouble("age_55plus_rate");
 
-               // Created the new AgeGroupUnemployment instance which contains the data
-               AgeGroupUnemployment newAgeGroupUnemployments = new AgeGroupUnemployment
+                // Created the new AgeGroupUnemployment instance which contains the data
+                AgeGroupUnemployment newAgeGroupUnemployments = new AgeGroupUnemployment
                        (id,date,overall_rate,age_16_17_rate,age_16_19_rate,age_18_19_rate,age_20plus_rate,age_25plus_rate,age_55plus_rate);
 
-               // Stored the data in the ArrayList
-               ageGroupUnemployments.add(newAgeGroupUnemployments);
+                // Stored the data in the ArrayList
+                ageGroupUnemployments.add(newAgeGroupUnemployments);
             }
 
         }
@@ -169,6 +166,5 @@ public class DBUtility {
 
         // Return the ArrayList
         return ageGroupUnemployments;
-
     }
 }

@@ -11,6 +11,9 @@ import java.io.IOException;
 
 public class Main extends Application {
 
+    /**
+     * This method starts JavaFX UI
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("chart-view.fxml"));
@@ -21,7 +24,9 @@ public class Main extends Application {
         stage.show();
     }
 
-
+    /**
+     * This main method will call the launch method which calls start method
+     */
     public static void main(String[] args) {
         launch();
     }

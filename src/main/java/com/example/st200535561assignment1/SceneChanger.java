@@ -11,9 +11,6 @@ import java.io.IOException;
 public class SceneChanger {
     /**
      * This method will show the chart according to the fxmlFileName when the click event happens
-     * @param event
-     * @param fxmlFileName
-     * @throws IOException
      */
     public static void changeScenes(ActionEvent event, String fxmlFileName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFileName));
