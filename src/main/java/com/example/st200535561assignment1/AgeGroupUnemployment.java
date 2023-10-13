@@ -17,15 +17,6 @@ public class AgeGroupUnemployment {
 
     /**
      * Constructor : this constructor will call setters for each values
-     * @param id
-     * @param date
-     * @param overall_rate
-     * @param age_16_17_rate
-     * @param age_16_19_rate
-     * @param age_18_19_rate
-     * @param age_20plus_rate
-     * @param age_25plus_rate
-     * @param age_55plus_rate
      */
     public AgeGroupUnemployment(int id, LocalDate date, double overall_rate, double age_16_17_rate, double age_16_19_rate, double age_18_19_rate, double age_20plus_rate, double age_25plus_rate, double age_55plus_rate) {
         setId(id);
@@ -39,11 +30,6 @@ public class AgeGroupUnemployment {
         setAge_55plus_rate(age_55plus_rate);
     }
 
-    /**
-     * Getters : Return each value when it's called
-     * Setters : Set the data which are sent from the constructor
-     * @return
-     */
     public int getId() {
         return id;
     }
@@ -51,20 +37,36 @@ public class AgeGroupUnemployment {
     public void setId(int id) {
         this.id = id;
     }
+
     public LocalDate getDate() {
         return date;
     }
 
+    /**
+     * The date should be before the current date
+     */
     public void setDate(LocalDate date) {
-        this.date = date;
+        if (date.isBefore(LocalDate.now())) {
+            this.date = date;
+        } else {
+            throw new IllegalArgumentException("Date should be before the current date.");
+        }
     }
 
     public double getOverall_rate() {
         return overall_rate;
     }
 
+    /**
+     * Setter: Each rate should be between 0 and 100
+     */
+
     public void setOverall_rate(double overall_rate) {
-        this.overall_rate = overall_rate;
+        if (overall_rate >= 0 && overall_rate <= 100) {
+            this.overall_rate = overall_rate;
+        } else {
+            throw new IllegalArgumentException("It should be between 0 and 100.");
+        }
     }
 
     public double getAge_16_17_rate() {
@@ -72,7 +74,11 @@ public class AgeGroupUnemployment {
     }
 
     public void setAge_16_17_rate(double age_16_17_rate) {
-        this.age_16_17_rate = age_16_17_rate;
+        if (age_16_17_rate >= 0 && age_16_17_rate <= 100) {
+            this.age_16_17_rate = age_16_17_rate;
+        } else {
+            throw new IllegalArgumentException("It should be between 0 and 100.");
+        }
     }
 
     public double getAge_16_19_rate() {
@@ -80,7 +86,11 @@ public class AgeGroupUnemployment {
     }
 
     public void setAge_16_19_rate(double age_16_19_rate) {
-        this.age_16_19_rate = age_16_19_rate;
+        if (age_16_19_rate >= 0 && age_16_19_rate <= 100) {
+            this.age_16_19_rate = age_16_19_rate;
+        } else {
+            throw new IllegalArgumentException("It should be between 0 and 100.");
+        }
     }
 
     public double getAge_18_19_rate() {
@@ -88,7 +98,11 @@ public class AgeGroupUnemployment {
     }
 
     public void setAge_18_19_rate(double age_18_19_rate) {
-        this.age_18_19_rate = age_18_19_rate;
+        if (age_18_19_rate >= 0 && age_18_19_rate <= 100) {
+            this.age_18_19_rate = age_18_19_rate;
+        } else {
+            throw new IllegalArgumentException("It should be between 0 and 100.");
+        }
     }
 
     public double getAge_20plus_rate() {
@@ -96,7 +110,11 @@ public class AgeGroupUnemployment {
     }
 
     public void setAge_20plus_rate(double age_20plus_rate) {
-        this.age_20plus_rate = age_20plus_rate;
+        if (age_20plus_rate >= 0 && age_20plus_rate <= 100) {
+            this.age_20plus_rate = age_20plus_rate;
+        } else {
+            throw new IllegalArgumentException("It should be between 0 and 100.");
+        }
     }
 
     public double getAge_25plus_rate() {
@@ -104,7 +122,11 @@ public class AgeGroupUnemployment {
     }
 
     public void setAge_25plus_rate(double age_25plus_rate) {
-        this.age_25plus_rate = age_25plus_rate;
+        if (age_25plus_rate >= 0 && age_25plus_rate <= 100) {
+            this.age_25plus_rate = age_25plus_rate;
+        } else {
+            throw new IllegalArgumentException("It should be between 0 and 100.");
+        }
     }
 
     public double getAge_55plus_rate() {
@@ -112,6 +134,10 @@ public class AgeGroupUnemployment {
     }
 
     public void setAge_55plus_rate(double age_55plus_rate) {
-        this.age_55plus_rate = age_55plus_rate;
+        if (age_55plus_rate >= 0 && age_55plus_rate <= 100) {
+            this.age_55plus_rate = age_55plus_rate;
+        } else {
+            throw new IllegalArgumentException("It should be between 0 and 100.");
+        }
     }
 }
