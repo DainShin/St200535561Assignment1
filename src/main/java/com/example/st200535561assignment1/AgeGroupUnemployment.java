@@ -58,14 +58,14 @@ public class AgeGroupUnemployment {
     }
 
     /**
-     * Setter: Each rate should be between 0 and 100
+     * Setter: Each rate should be between 0 and 100 (for the rate, the validation is same)
      */
 
     public void setOverall_rate(double overall_rate) {
         if (overall_rate >= 0 && overall_rate <= 100) {
             this.overall_rate = overall_rate;
         } else {
-            throw new IllegalArgumentException("It should be between 0 and 100.");
+            throw new IllegalArgumentException("The rate should be between 0 and 100.");
         }
     }
 
@@ -77,7 +77,7 @@ public class AgeGroupUnemployment {
         if (age_16_17_rate >= 0 && age_16_17_rate <= 100) {
             this.age_16_17_rate = age_16_17_rate;
         } else {
-            throw new IllegalArgumentException("It should be between 0 and 100.");
+            throw new IllegalArgumentException("The rate should be between 0 and 100.");
         }
     }
 
@@ -89,7 +89,7 @@ public class AgeGroupUnemployment {
         if (age_16_19_rate >= 0 && age_16_19_rate <= 100) {
             this.age_16_19_rate = age_16_19_rate;
         } else {
-            throw new IllegalArgumentException("It should be between 0 and 100.");
+            throw new IllegalArgumentException("The rate should be between 0 and 100.");
         }
     }
 
@@ -101,7 +101,7 @@ public class AgeGroupUnemployment {
         if (age_18_19_rate >= 0 && age_18_19_rate <= 100) {
             this.age_18_19_rate = age_18_19_rate;
         } else {
-            throw new IllegalArgumentException("It should be between 0 and 100.");
+            throw new IllegalArgumentException("The rate should be between 0 and 100.");
         }
     }
 
@@ -113,7 +113,7 @@ public class AgeGroupUnemployment {
         if (age_20plus_rate >= 0 && age_20plus_rate <= 100) {
             this.age_20plus_rate = age_20plus_rate;
         } else {
-            throw new IllegalArgumentException("It should be between 0 and 100.");
+            throw new IllegalArgumentException("The rate should be between 0 and 100.");
         }
     }
 
@@ -125,7 +125,7 @@ public class AgeGroupUnemployment {
         if (age_25plus_rate >= 0 && age_25plus_rate <= 100) {
             this.age_25plus_rate = age_25plus_rate;
         } else {
-            throw new IllegalArgumentException("It should be between 0 and 100.");
+            throw new IllegalArgumentException("The rate should be between 0 and 100.");
         }
     }
 
@@ -137,7 +137,7 @@ public class AgeGroupUnemployment {
         if (age_55plus_rate >= 0 && age_55plus_rate <= 100) {
             this.age_55plus_rate = age_55plus_rate;
         } else {
-            throw new IllegalArgumentException("It should be between 0 and 100.");
+            throw new IllegalArgumentException("The rate should be between 0 and 100.");
         }
     }
 }
