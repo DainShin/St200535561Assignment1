@@ -1,9 +1,8 @@
 .root {
+    -fx-font-family: 'Lato';
     -fx-font-size: 20px;
-    -fx-font-family: sans-serif;
     -fx-background-image: url("images/backgroundimg.jpg");
     -fx-background-size: cover;
-    -fx-background-color: rgba(0, 0, 0, 1);
 }
 
 .closeButton{
@@ -23,15 +22,19 @@
 }
 
 .button {
-    -fx-background-radius: 20pt;
-    -fx-border-radius: 20px;
-    -fx-background-color: #05263b;
-    -fx-text-fill: white;
+    -fx-background-color:#0C70F2;
+    -fx-text-fill:#fff;
+    -fx-border:none;
+    -fx-position:relative;
+    -fx-padding: 15px;
+    -fx-cursor:pointer;
+    -box-shadow: 5px 5px 5px;
+    -fx-outline:none;
 }
 
 .button:hover {
     -fx-background-color: white;
-    -fx-text-fill: #05263b;
+    -fx-text-fill: #0C70F2;
 }
 
 .label {
@@ -49,6 +52,7 @@
 
 .chart-legend {
     -fx-text-fill: white;
+    -fx-font-weight: 800;
     -fx-background-color: transparent;
 }
 

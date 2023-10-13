@@ -33,6 +33,7 @@
             </Label>
             <TableView fx:id="tableView">
               <columns>
+                  <TableColumn fx:id="idColumn" prefWidth="75.0" text="Id" />
                 <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
                 <TableColumn fx:id="overallColumn" prefWidth="75.0" text="Overall" />
                   <TableColumn fx:id="ageGroup1Column" prefWidth="75.0" text="16~17" />

@@ -123,6 +123,10 @@ public class DBUtility {
         return series;
     }
 
+    /**
+     * This it for the table. The table will show the US unemployment rate by age
+     * @return
+     */
     public static ArrayList<AgeGroupUnemployment> getAgeGroupUnemploymentFromDB() {
 
         // ageGroupUnemployments will store the data for the table chart
@@ -130,6 +134,7 @@ public class DBUtility {
 
         String sql = "SELECT * FROM df_unemployment_rates;";
 
+        // Used try with resource to get the data from the database
         try (
                 Connection conn = DriverManager.getConnection(connectURL, dbUser, password);
                 Statement statement = conn.createStatement();
@@ -139,6 +144,7 @@ public class DBUtility {
             while (resultSet.next())
             {
                // Stored each data from the database
+                int id = resultSet.getInt("id");
                LocalDate date = resultSet.getDate("date").toLocalDate();
                double overall_rate = resultSet.getDouble("overall_rate");
                double age_16_17_rate = resultSet.getDouble("age_16_17_rate");
@@ -150,7 +156,7 @@ public class DBUtility {
 
                // Created the new AgeGroupUnemployment instance which contains the data
                AgeGroupUnemployment newAgeGroupUnemployments = new AgeGroupUnemployment
-                       (date,overall_rate,age_16_17_rate,age_16_19_rate,age_18_19_rate,age_20plus_rate,age_25plus_rate,age_55plus_rate);
+                       (id,date,overall_rate,age_16_17_rate,age_16_19_rate,age_18_19_rate,age_20plus_rate,age_25plus_rate,age_55plus_rate);
 
                // Stored the data in the ArrayList
                ageGroupUnemployments.add(newAgeGroupUnemployments);

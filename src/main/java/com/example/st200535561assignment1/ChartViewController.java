@@ -26,7 +26,20 @@ public class ChartViewController {
     private ToggleGroup toggleGroup;
 
     /**
-     * If the idGenderChartSelected is true, the line chart will be shown. If not, the bar chart will be shown
+     * This is to check the selected radio button
+     */
+    @FXML
+    void handleRadioButtonAction(ActionEvent event) throws IOException {
+        if(event.getSource() == overallRadioButton)
+            selectedNumber = 1;
+        else if(event.getSource() == genderRadioButton)
+            selectedNumber = 2;
+        else if(event.getSource() == tableViewRadioButton)
+            selectedNumber = 3;
+    }
+
+    /**
+     * According to the radio button, each fxml files will be sent to the "SceneChanger.changeScenes" method when the button is clicked
      */
     @FXML
     void viewTable(ActionEvent event) throws IOException {
@@ -41,18 +54,6 @@ public class ChartViewController {
         SceneChanger.changeScenes(event, fxmlFileName);
     }
 
-    /**
-     * This method will check if the radio button is for linechart or not
-     */
-    @FXML
-    void handleRadioButtonAction(ActionEvent event) throws IOException {
-        if(event.getSource() == overallRadioButton)
-            selectedNumber = 1;
-        else if(event.getSource() == genderRadioButton)
-            selectedNumber = 2;
-        else if(event.getSource() == tableViewRadioButton)
-            selectedNumber = 3;
-    }
 
     /**
      * Barchart for overall unemployment rate is called from the DBUtility.getBarChartData()

@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class TableViewController {
 
     @FXML
+    private TableColumn<AgeGroupUnemployment, Integer> idColumn;
+
+    @FXML
     private TableColumn<AgeGroupUnemployment, Double> ageGroup1Column;
 
     @FXML
@@ -51,10 +54,11 @@ public class TableViewController {
     private RadioButton tableViewRadioButton;
     private int selectedNumber = 1;
     private ToggleGroup toggleGroup;
-
-
     private ArrayList<AgeGroupUnemployment> allAgeGroupUnemployment;
 
+    /**
+     * This is to check the selected radio button
+     */
     @FXML
     void handleRadioButtonAction(ActionEvent event) {
         if(event.getSource() == overallRadioButton)
@@ -65,6 +69,9 @@ public class TableViewController {
             selectedNumber = 3;
     }
 
+    /**
+     * According to the radio button, each fxml files will be sent to the "SceneChanger.changeScenes" method when the button is clicked
+     */
     @FXML
     void viewTable(ActionEvent event)  throws IOException {
         String fxmlFileName = "";
@@ -86,6 +93,7 @@ public class TableViewController {
     private void initialize() {
         allAgeGroupUnemployment = DBUtility.getAgeGroupUnemploymentFromDB();
 
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         ageGroup1Column.setCellValueFactory(new PropertyValueFactory<>("age_16_17_rate"));
         ageGroup2Column.setCellValueFactory(new PropertyValueFactory<>("age_16_19_rate"));
         ageGroup3Column.setCellValueFactory(new PropertyValueFactory<>("age_18_19_rate"));

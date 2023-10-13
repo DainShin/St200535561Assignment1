@@ -26,6 +26,19 @@ public class GenderChartViewController {
     private ToggleGroup toggleGroup;
 
     /**
+     * This method will check the selected radio button
+     */
+    @FXML
+    void handleRadioButtonAction(ActionEvent event) {
+        if(event.getSource() == overallRadioButton)
+            selectedNumber = 1;
+        else if(event.getSource() == genderRadioButton)
+            selectedNumber = 2;
+        else if(event.getSource() == tableViewRadioButton)
+            selectedNumber = 3;
+    }
+
+    /**
      * According to the radio button, each fxml files will be sent to the "SceneChanger.changeScenes" method
      */
     @FXML
@@ -39,19 +52,6 @@ public class GenderChartViewController {
             fxmlFileName ="table-view.fxml";
 
         SceneChanger.changeScenes(event, fxmlFileName);
-    }
-
-    /**
-     * This method will check the selected radio button
-     */
-    @FXML
-    void handleRadioButtonAction(ActionEvent event) {
-        if(event.getSource() == overallRadioButton)
-            selectedNumber = 1;
-        else if(event.getSource() == genderRadioButton)
-            selectedNumber = 2;
-        else if(event.getSource() == tableViewRadioButton)
-            selectedNumber = 3;
     }
 
     /**

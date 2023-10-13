@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class AgeGroupUnemployment {
 
     // Fields
+    private int id;
     private LocalDate date;
     private double overall_rate;
     private double age_16_17_rate;
@@ -14,19 +15,42 @@ public class AgeGroupUnemployment {
     private double age_25plus_rate;
     private double age_55plus_rate;
 
-    // Constructor
-    public AgeGroupUnemployment(LocalDate date, double overall_rate, double age_16_17_rate, double age_16_19_rate, double age_18_19_rate, double age_20plus_rate, double age_25plus_rate, double age_55plus_rate) {
-        this.date = date;
-        this.overall_rate = overall_rate;
-        this.age_16_17_rate = age_16_17_rate;
-        this.age_16_19_rate = age_16_19_rate;
-        this.age_18_19_rate = age_18_19_rate;
-        this.age_20plus_rate = age_20plus_rate;
-        this.age_25plus_rate = age_25plus_rate;
-        this.age_55plus_rate = age_55plus_rate;
+    /**
+     * Constructor : this constructor will call setters for each values
+     * @param id
+     * @param date
+     * @param overall_rate
+     * @param age_16_17_rate
+     * @param age_16_19_rate
+     * @param age_18_19_rate
+     * @param age_20plus_rate
+     * @param age_25plus_rate
+     * @param age_55plus_rate
+     */
+    public AgeGroupUnemployment(int id, LocalDate date, double overall_rate, double age_16_17_rate, double age_16_19_rate, double age_18_19_rate, double age_20plus_rate, double age_25plus_rate, double age_55plus_rate) {
+        setId(id);
+        setDate(date);
+        setOverall_rate(overall_rate);
+        setAge_16_17_rate(age_16_17_rate);
+        setAge_16_19_rate(age_16_19_rate);
+        setAge_18_19_rate(age_18_19_rate);
+        setAge_20plus_rate(age_20plus_rate);
+        setAge_25plus_rate(age_25plus_rate);
+        setAge_55plus_rate(age_55plus_rate);
     }
 
-    // Getters and setters
+    /**
+     * Getters : Return each value when it's called
+     * Setters : Set the data which are sent from the constructor
+     * @return
+     */
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public LocalDate getDate() {
         return date;
     }

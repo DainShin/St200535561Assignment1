@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class SceneChanger {
     /**
-     * This method will show the chart according to the fxmlFileName
+     * This method will show the chart according to the fxmlFileName when the click event happens
      * @param event
      * @param fxmlFileName
      * @throws IOException
